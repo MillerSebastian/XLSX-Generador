@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Generador Personalizable de Excel</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>
+        <i class="fa-solid fa-file-excel"></i> Generador Personalizable de Excel
+      </h1>
+
+      <div class="form-section">
+        <h3><i class="fa-solid fa-table-columns"></i> Configurar Columnas</h3>
+        <div class="column-builder">
+          <div class="input-group">
+            <label>Nombre de Columna:</label>
+            <input
+              type="text"
+              id="columnName"
+              placeholder="Ej: Nombre, Precio, Email"
+            />
+          </div>
+          <div class="input-group">
+            <label>Tipo de Dato:</label>
+            <select id="columnType">
+              <option value="text">Texto</option>
+              <option value="number">Número</option>
+              <option value="price">Precio ($)</option>
+              <option value="email">Email</option>
+              <option value="phone">Teléfono</option>
+              <option value="date">Fecha</option>
+              <option value="boolean">Sí/No</option>
+              <option value="category">Categoría</option>
+              <option value="name">Nombre Persona</option>
+              <option value="company">Empresa</option>
+              <option value="address">Dirección</option>
+              <option value="city">Ciudad</option>
+              <option value="country">País</option>
+              <option value="url">URL</option>
+              <option value="percentage">Porcentaje</option>
+            </select>
+          </div>
+          <div class="input-group">
+            <label>Opciones (opcional):</label>
+            <input
+              type="text"
+              id="columnOptions"
+              placeholder="Para categorías: ropa,electrónica,hogar"
+            />
+          </div>
+          <button onclick="addColumn()">
+            <i class="fa-solid fa-plus"></i> Agregar Columna
+          </button>
+        </div>
+
+        <div class="columns-list" id="columnsList">
+          <!-- Las columnas se mostrarán aquí -->
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h3><i class="fa-solid fa-gear"></i> Configuración del Archivo</h3>
+        <div style="display: flex; gap: 20px; flex-wrap: wrap">
+          <div class="input-group">
+            <label>Nombre del Archivo:</label>
+            <input
+              type="text"
+              id="fileName"
+              value="datos_generados"
+              placeholder="datos_generados"
+            />
+          </div>
+          <div class="input-group">
+            <label>Cantidad de Registros:</label>
+            <input
+              type="number"
+              id="recordCount"
+              value="100"
+              min="1"
+              max="1000"
+            />
+          </div>
+        </div>
+      </div>
+
+      <button class="btn-success" onclick="generateExcel()">
+        <i class="fa-solid fa-download"></i> Generar y Descargar Excel
+      </button>
+
+      <div class="examples-section">
+        <h3><i class="fa-solid fa-bolt"></i> Ejemplos Rápidos</h3>
+        <p>Haz clic en cualquier ejemplo para configurar automáticamente:</p>
+        <button class="example-btn" onclick="loadExample('products')">
+          <i class="fa-solid fa-box"></i> Productos
+        </button>
+        <button class="example-btn" onclick="loadExample('employees')">
+          <i class="fa-solid fa-users"></i> Empleados
+        </button>
+        <button class="example-btn" onclick="loadExample('customers')">
+          <i class="fa-solid fa-handshake"></i> Clientes
+        </button>
+        <button class="example-btn" onclick="loadExample('inventory')">
+          <i class="fa-solid fa-warehouse"></i> Inventario
+        </button>
+        <button class="example-btn" onclick="loadExample('sales')">
+          <i class="fa-solid fa-cash-register"></i> Ventas
+        </button>
+        <button class="example-btn" onclick="loadExample('students')">
+          <i class="fa-solid fa-user-graduate"></i> Estudiantes
+        </button>
+      </div>
+
+      <div id="status" class="status"></div>
+    </div>
+    <footer>
+      <div style="margin-bottom: 8px">
+        &copy; Todos los derechos reservados. Hecho con
+        <i class="fa-solid fa-heart" style="color: #f503d9"></i> y mucho código
+        por
+        <b style="display: inline-flex; align-items: center; gap: 4px">
+          Sebastián Rodelo <i class="fas fa-code"></i>
+          </span>
+          | Riwi Coder
+        </b>
+      </div>
+      <a
+        class="github-btn"
+        href="https://github.com/MillerSebastian"
+        target="_blank"
+        rel="noopener"
+      >
+        <i class="fab fa-github"></i> Ver en GitHub
+      </a>
+    </footer>
+
+    <script src="main.js"></script>
+
+    </script>
+  </body>
+</html>
